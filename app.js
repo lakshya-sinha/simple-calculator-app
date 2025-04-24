@@ -10,6 +10,23 @@ main.addEventListener("mousemove", (delta) => {
     cursr.style.left = `${delta.x}px`;
 })
 
+var i = 0;
+var txt = '2+2 = 4'; /* The text */
+var speed = 120; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+    if (i < txt.length) {
+        document.querySelector("input").value += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+
+    }
+}
+typeWriter();
+
+setTimeout(() => {
+    document.querySelector('input').value = "";
+}, 2000)
 
 function type(which) {
     if (which.innerText == "AC") {
